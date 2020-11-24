@@ -53,6 +53,10 @@ app.use(require('./routes/publicar'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res){
+    res.status(404).redirect("/signin");
+});
+
 // Server is listenning
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
